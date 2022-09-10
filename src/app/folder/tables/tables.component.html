@@ -1,0 +1,16 @@
+<div class="padding">
+  <div class="center">
+    <ion-list>
+      <ion-item *ngFor="let table of tables">
+        <ion-button
+          [ngClass]="{
+            free: table.state == 'Libre',
+            occupied: table.state == 'Ocupada'
+          }"
+          (click)="onClick(table.id)"
+          >Table {{ table.id }}</ion-button
+        >
+      </ion-item>
+    </ion-list>
+  </div>
+</div>

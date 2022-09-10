@@ -1,0 +1,21 @@
+<div class="oj-hybrid-padding">
+  <h1>Ready dishes</h1>
+  <div>
+    <ion-grid class="ion-margin">
+      <ion-row>
+        <ion-col>Table</ion-col>
+        <ion-col>Name</ion-col>
+        <ion-col>Units</ion-col>
+        <ion-col>Done</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let dish of readyDishes">
+        <ion-col>{{ dish.table }}</ion-col>
+        <ion-col>{{ dish.name }}</ion-col>
+        <ion-col>{{ dish.units }}</ion-col>
+        <ion-col>
+          <ion-button (click)="onReadyDish(dish)">Ready</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>

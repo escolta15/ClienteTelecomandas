@@ -1,0 +1,47 @@
+<div class="padding">
+  <div class="center">
+    <h1>Table nº {{ id }}</h1>
+    <h2 *ngIf="table">Opening hour: {{ table.command.timeOpening }}</h2>
+    <ion-button (click)="onCloseTable()">Close table</ion-button>
+  </div>
+  <div class="categories">
+    <ion-segment (ionChange)="segmentChanged($event)">
+      <ion-segment-button
+        *ngFor="let category of categories"
+        value="{{ category.id }}"
+      >
+        <ion-label>{{ category.name }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <div>
+      <ion-list>
+        <ion-item *ngFor="let dish of dishesToChoose">
+          <ion-button (click)="onChooseDish(dish.dishId)">{{
+            dish.name
+          }}</ion-button>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+  <div class="command">
+    <h2>Command</h2>
+    <div>
+      <ion-list>
+        <ion-item *ngFor="let dish of choosenDishes">
+          <ion-label>{{ dish.name }}</ion-label>
+          <ion-label>Units: {{ dish.units }}</ion-label>
+          <ion-label>Price: {{ dish.price }} €</ion-label>
+          <ion-button (click)="deleteDish(dish.dishId)">Delete</ion-button>
+        </ion-item>
+      </ion-list>
+
+      <hr />
+      <h2 class="center">
+        Final price:
+        <p>{{ price }}</p>
+        <ion-button (click)="confirmCommand()">Confirm Command</ion-button>
+      </h2>
+    </div>
+  </div>
+</div>
