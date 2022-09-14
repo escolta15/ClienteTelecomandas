@@ -15,8 +15,7 @@ export class Table {
   public addDish(dishId: string, dishesToChoose: Dish[]): void {
     let dish = null;
     const foundDish = this.findDish(dishId, dishesToChoose);
-    for (let i = 0; i < this.command.dishes.length; i++) {
-      const auxi = this.command.dishes[i];
+    for (const auxi of this.command.dishes) {
       if (auxi.dishId == dishId) {
         dish = auxi;
         break;
@@ -37,8 +36,8 @@ export class Table {
 
   private findDish(dishId: string, dishesToChoose: Dish[]): Dish {
     let dish = null;
-    for (let i = 0; i < dishesToChoose.length; i++) {
-      if (dishesToChoose[i].dishId == dishId) dish = dishesToChoose[i];
+    for (const choosenDish of dishesToChoose) {
+      if (choosenDish.dishId == dishId) dish = choosenDish;
     }
     return dish;
   }

@@ -22,10 +22,10 @@ export class DishesService {
     request.onreadystatechange = () => {
       if (request.readyState == 4 && request.status == 200) {
         const response = JSON.parse(request.responseText);
-        for (let i = 0; i < response.length; i++) {
-          let dish = response[i].plato;
+        for (const readyDish of response) {
+          let dish = readyDish.plato;
           let receivedCommand = {
-            table: response[i].id,
+            table: readyDish.id,
             name: dish.nombre,
             units: dish.unidades,
           };

@@ -29,10 +29,10 @@ export class TablesService {
         const response = JSON.parse(request.responseText);
         if (this.tables.length == 0) {
           this.tables = [];
-          for (let i = 0; i < response.length; i++) {
-            const table = new Table(response[i]._id, response[i].estado);
+          for (const receivedTable of response) {
+            const table = new Table(receivedTable._id, receivedTable.estado);
             this.tables.push(table);
-            this.getTableState(response[i]._id);
+            this.getTableState(receivedTable._id);
           }
         }
       }
@@ -41,7 +41,7 @@ export class TablesService {
   }
 
   public async getTableState(tableId: number): Promise<any> {
-    return await this.makeRequest(tableId);
+    return this.makeRequest(tableId);
   }
 
   public openTable(id: number): void {

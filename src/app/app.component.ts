@@ -11,5 +11,4 @@ export class AppComponent {
     { title: 'Ready dishes', url: '/ready-dishes', icon: 'pizza' },
     { title: 'About', url: '/about', icon: 'information' },
   ];
-  constructor() {}
 }

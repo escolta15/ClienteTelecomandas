@@ -81,7 +81,7 @@ export class TableComponent implements OnInit {
   }
 
   private getCategories(): void {
-    var request = new XMLHttpRequest();
+    const request = new XMLHttpRequest();
     request.open(
       'get',
       'http://localhost:8080/Java-Web/getCategorias.jsp',
@@ -95,8 +95,11 @@ export class TableComponent implements OnInit {
       if (request.readyState == 4 && request.status == 200) {
         const response = JSON.parse(request.responseText);
         this.categories = [];
-        for (let i = 0; i < response.length; i++) {
-          const category = new Category(response[i]._id, response[i].nombre);
+        for (const obtainedCategory of response) {
+          const category = new Category(
+            obtainedCategory._id,
+            obtainedCategory.nombre
+          );
           this.categories.push(category);
         }
       }

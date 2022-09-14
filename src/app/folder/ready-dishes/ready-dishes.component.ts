@@ -5,7 +5,6 @@ import { ReadyDish } from '../../models/ready-dish.model';
 @Component({
   selector: 'app-ready-dishes',
   templateUrl: './ready-dishes.component.html',
-  styleUrls: ['./ready-dishes.component.scss'],
 })
 export class ReadyDishesComponent implements OnInit, OnDestroy {
   private interval;
