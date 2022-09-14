@@ -141,8 +141,8 @@ export class TableComponent implements OnInit {
 
   private calculatePrice(): void {
     let totalPrice: number = 0;
-    for (var i = 0; i < this.table.command.dishes.length; i++) {
-      totalPrice += this.table.command.dishes[i].price;
+    for (const dish of this.table.command.dishes) {
+      totalPrice += dish.price;
     }
     this.price = Math.round(totalPrice * 100) / 100;
   }
