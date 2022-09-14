@@ -122,12 +122,12 @@ export class TableComponent implements OnInit {
       if (request.readyState == 4 && request.status == 200) {
         const response = JSON.parse(request.responseText);
         this.dishesToChoose = [];
-        for (let i = 0; i < response.length; i++) {
+        for (const obtainedPlato of response) {
           const plato = new Dish(
             categoryId,
-            response[i]._id,
-            response[i].nombre,
-            response[i].precio
+            obtainedPlato._id,
+            obtainedPlato.nombre,
+            obtainedPlato.precio
           );
           this.dishesToChoose.push(plato);
         }
